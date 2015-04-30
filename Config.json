@@ -1,0 +1,11 @@
+{
+  "expiration": 120,
+  "app_events": {
+    "nuhelp": [
+      "notification:newLocation",
+      "notification:new",
+      "notification:expired",
+      "notification:canceled"
+    ]
+  }
+}
