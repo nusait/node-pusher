@@ -1,3 +1,4 @@
+var fs = require('fs');
 var express = require('express');
 var Env = require('./.env.json');
 var Config = require('./Config.json');
