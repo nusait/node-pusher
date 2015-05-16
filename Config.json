@@ -5,7 +5,8 @@
       "notification:newLocation",
       "notification:new",
       "notification:expired",
-      "notification:canceled"
+      "notification:canceled",
+      "notification:sent"
     ]
   }
 }
