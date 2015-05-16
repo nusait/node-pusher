@@ -13,9 +13,19 @@ var _ = require('underscore');
 var server;
 
 if (Env.secured === true) {
+    var ca = [];
+    Env.cert_ca.forEach(function(item) {
+        ca.push(fs.readFileSync(item));
+    });
+
     var options = {
+        hostname: Env.hostname,
+        port: Env.secure_port,
         key: fs.readFileSync(Env.cert_key),
-        cert: fs.readFileSync(Env.cert_file)
+        cert: fs.readFileSync(Env.cert_file),
+        ca: ca,
+        requestCert: false,
+        rejectUnauthorized: false
     };
 
     server = https.createServer(options, app).listen(Env.secure_port);
