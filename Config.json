@@ -7,6 +7,11 @@
       "notification:expired",
       "notification:canceled",
       "notification:sent"
+    ],
+    "earlyarrival": [
+      "application:updated",
+      "application:created",
+      "application:deleted"
     ]
   }
 }
