@@ -12,6 +12,9 @@
       "application:updated",
       "application:created",
       "application:deleted"
+    ],
+    "devit": [
+      "demoMessage:sent"
     ]
   }
 }
