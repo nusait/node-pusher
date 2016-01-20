@@ -2,13 +2,13 @@ var fs = require('fs');
 var express = require('express');
 var Env = require('./.env.json');
 var Config = require('./Config.json');
-var redis = require('redis');
+// var redis = require('redis');
 var shortid = require('shortid');
 var app = express();
 var http = require('http');
 var https = require('https');
 var Promise = require('es6-promise').Promise;
-var redisClient = redis.createClient();
+// var redisClient = redis.createClient();
 var _ = require('underscore');
 var server;
 
@@ -136,11 +136,11 @@ function subscribeEvent(eventName) {
 
 }
 
-app.get('/set/:value', function(req, res) {
-    console.log(req.params.value);
-    redisClient.set('test', req.params.value);
-    res.send('OK!');
-});
+// app.get('/set/:value', function(req, res) {
+//     console.log(req.params.value);
+//     redisClient.set('test', req.params.value);
+//     res.send('OK!');
+// });
 
 //app.get('/generate/client-token/', function (req, res) {
 //    //TODO: Check to see if server key that's pass is the one in the Env!
@@ -166,20 +166,20 @@ app.get('/set/:value', function(req, res) {
 //
 //});
 
-app.get('/get/:dbname', function (req, res) {
-    var pending = new Promise(function (resolve, reject) {
-        redisClient.get(req.params.dbname, function (error, result) {
-            if (!! error) {
-                reject(Error(error));
-            }
-            resolve(result);
-        });
-    });
-
-    pending.then(function (result) {
-        res.send(result + '!!!');
-    });
-});
+// app.get('/get/:dbname', function (req, res) {
+//     var pending = new Promise(function (resolve, reject) {
+//         redisClient.get(req.params.dbname, function (error, result) {
+//             if (!! error) {
+//                 reject(Error(error));
+//             }
+//             resolve(result);
+//         });
+//     });
+//
+//     pending.then(function (result) {
+//         res.send(result + '!!!');
+//     });
+// });
 
 app.post('/emit', function (req, res) {
 
@@ -188,4 +188,3 @@ app.post('/emit', function (req, res) {
 app.get('/', function (req, res) {
     res.send('I am here!');
 });
-
